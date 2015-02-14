@@ -23,20 +23,18 @@ public class DatabaseConfiguration implements EnvironmentAware {
         this.propertyResolver = new RelaxedPropertyResolver(env, "spring.datasource.");
     }
 
-    @Bean
-    public SpringLiquibase liquibase(DataSource dataSource) {
-        SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setDataSource(dataSource);
-        liquibase.setChangeLog("classpath:config/liquibase/master.xml");
-        liquibase.setDropFirst(true);
-//        liquibase.setContexts("development, production");
-//        if (env.acceptsProfiles(Constants.SPRING_PROFILE_FAST)) {
-            liquibase.setShouldRun(false);
-//        } else {
-//            log.debug("Configuring Liquibase");
-//        }
-        return liquibase;
-    }
+	@Bean
+	public SpringLiquibase liquibase(DataSource dataSource) {
+		SpringLiquibase liquibase = new SpringLiquibase();
+		liquibase.setDataSource(dataSource);
+		liquibase.setChangeLog("classpath:config/liquibase/master.xml");
+		liquibase.setDropFirst(true);
+		// liquibase.setContexts("development, production");
+		if (!env.acceptsProfiles("liquibase")) {
+			liquibase.setShouldRun(false);
+		}
+		return liquibase;
+	}
 
 
 }
