@@ -18,13 +18,13 @@ Create Login Role with following attributes:
 After that, create also a database with the same name:  __caliga__
 
 You can use command-line for starter, but it is highly recommended to use Eclipse / STS as your IDE.
-* #### 2.1 Command Line
+* 2.1 Command Line
 Clone the project:
 ```sh
 $ git clone https://github.com/irfanr/caliga.git
 ```
 Go to your project directory and type:
 ```sh
-$ mvn spring-boot:run
+$ mvn spring-boot:run -Dspring.profiles.active=liquibase
 ```
-* #### 2.2 Eclipse / STS
+* 2.2 Eclipse / STS
