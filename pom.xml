@@ -20,7 +20,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>com.mascova.caliga.CaligaApplication</start-class>
+		<start-class>com.mascova.caliga.Application</start-class>
 		<java.version>1.8</java.version>
 		<liquibase.version>3.3.2</liquibase.version>
 		<dandelion.version>0.10.1</dandelion.version>
